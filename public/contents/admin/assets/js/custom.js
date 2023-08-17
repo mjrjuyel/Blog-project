@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $(document).on("click", "#softDelete", function () {
-           var deleteID = $this;
+           var deleteID = $(this).data('id');
            $(".modal_body #modal_id").val( deleteID );
       });
     $(document).on("click", "#restore", function () {

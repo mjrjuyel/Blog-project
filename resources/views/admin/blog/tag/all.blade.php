@@ -59,20 +59,38 @@
                                                 <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item" href="{{url('dashboard/blog/tag/view/'.$data->tag_slug)}}">View</a></li>
                                                 <li><a class="dropdown-item" href="{{url('dashboard/blog/tag/edit/'.$data->tag_slug)}}">Edit</a></li>
-                                                <li>
-                                                    <form method="post" action="{{url('dashboard/blog/tag/delete/'.$data->tag_id)}}">
-                                                        
-                                                        @csrf
-                                                        <button type="submit" class="dropdown-item">Delete<button>
-                                                    </form>
-                                                </li>
-                                                <!-- <li><a class="dropdown-item" href="{{url('dashboard/blog/tag/delete',['tag_id'=>$data->tag_id])}}">Delete</a></li> -->
-                                                
-                                                <!-- <li><a class="dropdown-item"  href="#" id="softDelete" title="delete" data-bs-toggle="modal" data-bs-target="#softDeleteModal" data-id="{{$data->tag_id}}">Delete</a></li> -->
+                                                <li><a class="dropdown-item"  href="#" id="softDelete" title="delete" data-bs-toggle="modal" 
+                                                data-bs-target="#softDeleteModal" data-id="{{$data->tag_id}}">Delete</a></li>
                                                 </ul>
                                             </div>
                                         </td>
                                         </tr>
+
+                                            <!-- Modal Div Start -->
+                                            <div id="softDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <form method="post" action="{{url('/dashboard/blog/tag/softdel')}}">
+                                                            @csrf
+                                                        <div class="modal-content">
+                                                                <div class="modal-header modal-colored-header bg-warning">
+                                                                <h4 class="modal-title" id="warning-header-modalLabel">User Delete</h4>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                                                                </div>
+
+                                                                <div class="modal-body modal_body">
+                                                                    Sure To Delete?
+                                                                    <input type="text"  name="modal_id" id="modal_id" value="{{$data->tag_id}}"/>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">No</button>
+                                                                    <button type="submit" class="btn btn-warning">Yes</button>
+                                                                </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal -->
+
                                         @endforeach
                                     </tbody>
                                     </table>
@@ -98,31 +116,5 @@
     </div> <!-- end col -->
 </div>
 
-<!-- Modal Div Start -->
-<div id="softDeleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  
-        <div class="modal-dialog">
-        <form method="post" action="{{url('/dashboard/blog/tag/softdel')}}">
-                @csrf
-            <div class="modal-content">
-                
-                    <div class="modal-header modal-colored-header bg-warning">
-                    <h4 class="modal-title" id="warning-header-modalLabel">User Delete</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
-                    </div>
-                    <div class="modal-body modal_body">
-                        Sure To Delete?
-                        <input type="text"  name="modal_id" id="modal_id"/>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">No</button>
-                        <button type="submit" class="btn btn-warning">Yes</button>
-                    </div>
-            
-                
-            </div><!-- /.modal-content -->
-            </form>
-        </div><!-- /.modal-dialog -->
-    
-</div><!-- /.modal -->
+
 @endsection

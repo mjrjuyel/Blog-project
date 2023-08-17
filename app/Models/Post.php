@@ -10,7 +10,7 @@ class Post extends Model
 
     use HasFactory;
     
-    protected $fillable = ['post_title'];
+    protected $guarded = [];
 
     public function Postcat(){
         return $this->belongsTo(Category::class,'cat_id');

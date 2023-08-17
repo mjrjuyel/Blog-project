@@ -95,11 +95,11 @@
                                                 <label for="" class="col-form-label col_form_label">Tags : </label>
                                             </div>
                                             @php
-                                            $tag=App\Models\Tag::where('tag_status','1')->orderBy('tag_id','ASC')->get()
+                                            $tag=App\Models\Tag::where('tag_status','1')->orderBy('id','ASC')->get()
                                             @endphp
                                             <div class="col-md-4 ">
                                                 @foreach($tag as $tag)
-                                                <input class="form-check-input" type="checkbox" name="tags[]" value="{{$tag->tag_id}}" id="tag{{$tag->id}}">
+                                                <input class="form-check-input" type="checkbox" name="tags[]" value="{{$tag->id}}" id="tag{{$tag->id}}">
                                                 <label class="form-check-label" for="tag{{$tag->id}}">
                                                     {{$tag->tag_title}}
                                                 </label>

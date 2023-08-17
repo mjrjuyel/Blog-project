@@ -43,6 +43,7 @@
                                         <th scope="col">Post Description</th>
                                         <th scope="col">Post banner</th>
                                         <th scope="col">Post category</th>
+                                        <th scope="col">Post Tag</th>
                                         <th scope="col">Post creator</th>
                                         <th scope="col">Manage</th>
                                         </tr>
@@ -61,6 +62,13 @@
                                             @endif  
                                         </td>
                                         <td>{{optional($data->postcat)->cat_title}}</td>
+                                           
+                                            <td>
+                                              @foreach($data->tags as $tag)
+                                                <button type="button" class="btn btn-secondary">{{$tag->tag_title}}</button>
+                                                @endforeach
+                                            </td>
+                                            
                                         <td>{{optional($data->postcreat)->name}}</td>
                                         <td>
                                             <div class="btn-group" role="group">

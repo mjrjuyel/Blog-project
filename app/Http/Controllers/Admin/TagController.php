@@ -17,7 +17,7 @@ class TagController extends Controller
     }
 
     public function index(){
-        $alltag=Tag::where('tag_status','1')->orderBy('tag_id','DESC')->simplePaginate(10);
+        $alltag=Tag::where('tag_status','1')->orderBy('id','DESC')->simplePaginate(10);
         return view('admin.blog.tag.all',compact('alltag'));
     }
     public function add(){
@@ -58,7 +58,7 @@ class TagController extends Controller
         $slug=$request['slug'];
         $editor=Auth::User()->id;
 
-        $update=Tag::where('tag_id',$id)->update([
+        $update=Tag::where('id',$id)->update([
             'tag_title'=>$request['tag_title'],
             'tag_description'=>$request['tag_detail'],
             'tag_editor'=>$editor,
@@ -72,12 +72,16 @@ class TagController extends Controller
             return redirect('dashboard/blog/tag/edit/'.$slug);
         }
     }
-    public function delete($id){
-        
-        $delete=Tag::where('tag_id',$id)->delete();
+    public function softdelete(Request $request){
+        $id = $request['modal_id'];
+        $delete =Tag::where('tag_status','1')->where('id',$id)->update([
+            'tag_status'=>0,
+            'tag_editor'=>Auth::user()->id,
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+        ]);
         if($delete){
             Session::flash('success','Successfully Deleted');
-            return redirect('dashboard/blog/tag');
+            return redirect()->back();
         }
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('post_id');
+            $table->id();
             $table->string('post_title',100)->nullable();
             $table->longText('post_detail')->nullable();
             $table->string('post_pic1',100)->nullable();
@@ -27,6 +27,12 @@ return new class extends Migration
             $table->timestamp('published_at');
             $table->timestamps();
         });
+
+        Schema::create('post_tag', function (Blueprint $table){
+            $table->id();
+            $table->foreignId('post_id')->constrained('posts');
+            $table->foreignId('tag_id')->constrained('tags');
+        });
     }
 
     /**
@@ -35,5 +41,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('post_tag');
     }
 };

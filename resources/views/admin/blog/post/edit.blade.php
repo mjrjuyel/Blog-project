@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-body card_body">
                                <div class="row">
-                                <input type="hidden" name="id" value="{{$edit->post_id}}">
+                                <input type="text" name="id" value="{{$edit->id}}">
                                 <input type="hidden" name="slug" value="{{$edit->post_slug}}">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8">
@@ -56,7 +56,7 @@
                                                 <label for="" class="col-form-label col_form_label">Post Banner image : </label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="file" id="" class="form-control form_control" name="post_pic1" value="">
+                                                <input type="file" id="" class="form-control form_control" name="post_pic1" value="{{$edit->post_pic1}}">
                                                
                                             </div>
                                             <div class="col-md-3">
@@ -94,6 +94,26 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <input type="file" id="" class="form-control form_control" name="post_pic4" value="{{old('post_pic4')}}">
+                                               
+                                            </div>
+                                        </div>
+
+                                        <div class="row g-3">
+                                            <div class="col-md-3 text-end">
+                                                <label for="" class="col-form-label col_form_label">Tag : </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                               <!-- Multiple Select -->
+                                                <select class="select2 form-control select2-multiple" data-toggle="select2" name="tags[]" multiple="multiple" data-placeholder="Select Tag">
+                                                        @foreach($tag as $tag)
+                                                                <option value="{{$tag->id}}"
+                                                                    @foreach($edit->tags as $t) 
+                                                                    @if($t->id == $tag->id) Selected @endif
+                                                                    @endforeach
+                                                                >{{$tag->tag_title}}
+                                                                </option>
+                                                        @endforeach
+                                                </select>
                                                
                                             </div>
                                         </div>

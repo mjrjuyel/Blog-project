@@ -92,6 +92,16 @@
                                                 <td>:</td>
                                                 <td>{{$view->postcat->cat_title}}</td>
                                             </tr>
+
+                                            <tr>
+                                                <td>Post Tag</td>
+                                                <td>:</td>
+                                                <td>
+                                                    @foreach($view->tags as $tag)
+                                                    <button class="btn btn-secondary">{{$tag->tag_title}}</button>
+                                                    @endforeach
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td> Post Creator</td>
                                                 <td>:</td>
