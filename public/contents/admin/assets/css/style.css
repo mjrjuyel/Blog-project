@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+  }
+  
+  img{
+    border: 0px;
+  }
+  
+  ul,ol{
+    list-style-type: none;
+  }
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover{
+    text-decoration: none;
+  }
+  
+  .clr{
+    clear: both;
+  }
+
+  .card_header,
+  .card_footer{
+    background-color: #313a46;
+    color: #fff;
+  }
+  .card_header_title{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FEFBF4;
+    letter-spacing: .2px;
+    margin-left: 16px;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+  .card_header_icon{
+    font-size: 18px;
+  }
+  .card_header_btn{
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .Submit_button{
+    color: #FEFBF4;
+    background: #6169d0;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .Submit_button:hover{
+    background: #6169d0;
+
+  }
+  /* add form */
+  .col_form_label{
+    font-size: 16px;
+    color: #313a46; 
+    font-weight: 600;
+  }
+  .valid_sign{
+    font-size: 20px;
+    color: rgb(251, 5, 5);
+  }
+  .invalid_msg{
+    margin: 20px 0px 0px 8px;
+    color: red;
+  }
+  /* all data table */
+  .custom_table{
+    text-align: center;
+  }
+  
