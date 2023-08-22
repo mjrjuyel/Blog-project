@@ -24,7 +24,6 @@ class PostController extends Controller
       return view('admin.blog.post.all',compact('post'));
    }
 
-
    public function add(){
     return view('admin.blog.post.add');
    }
@@ -34,11 +33,9 @@ class PostController extends Controller
 
       $creator=Auth::user()->id;
 
-      
-
       if($request->hasFile('post_pic1')){
          $image=$request->file('post_pic1');
-         $image_1_Name='post-pic-1-'.uniqId().'.'.$image->getClientOriginalExtension();
+         $image_1_Name='post-pic-1-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
          Image::make($image)->save('uploads/admin/post/'.$image_1_Name);
 
@@ -48,41 +45,26 @@ class PostController extends Controller
          // ]);
       }
 
-      // if($request->hasFile('post_pic2')){
-      //    $image=$request->file('post_pic2');
-      //    $imageName='post-pic-4-'.uniqid().'-'.'.'.$image->getClientOriginalExtension();
+      if($request->hasFile('post_pic2')){
+         $image=$request->file('post_pic2');
+         $image_2_name='post-pic-2-'.uniqid().'-'.'.'.$image->getClientOriginalExtension();
 
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
+         Image::make($image)->save('uploads/admin/post/'.$image_2_name);
+      }
 
-      //    Post::where('id',$insert)->update([
-      //       'post_pic4'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
+      if($request->hasFile('post_pic3')){
+         $image=$request->file('post_pic3');
+         $image_3_name='post-pic-3-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
-      // if($request->hasFile('post_pic3')){
-      //    $image=$request->file('post_pic3');
-      //    $imageName='post-pic-3-'.time().'-'.'.'.$image->getClientOriginalExtension();
+         Image::make($image)->save('uploads/admin/post/'.$image_3_name);
+      }
 
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
+      if($request->hasFile('post_pic4')){
+         $image=$request->file('post_pic4');
+         $image_4_name='post-pic-4-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
-      //    Post::where('id',$insert)->update([
-      //       'post_pic3'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
-
-      // if($request->hasFile('post_pic4')){
-      //    $image=$request->file('post_pic4');
-      //    $imageName='post-pic-4-'.time().'-'.'.'.$image->getClientOriginalExtension();
-
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
-
-      //    Post::where('id',$insert)->update([
-      //       'post_pic4'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
+         Image::make($image)->save('uploads/admin/post/'.$image_4_name);
+      }
 
       $insert=Post::create([
          'post_title'=>$request['post_title'],
@@ -90,6 +72,9 @@ class PostController extends Controller
          'cat_id'=>$request['post_cat'],
          'post_creator'=>$creator,
          'post_pic1'=>$image_1_Name ?? null,
+         'post_pic2'=>$image_2_name ?? null,
+         'post_pic3'=>$image_3_name ?? null,
+         'post_pic4'=>$image_4_name ?? null,
          'post_slug'=>'post-'.uniqId(),
          'published_at'=>carbon::now()->toDateTimeString(),
          'created_at'=>carbon::now()->toDateTimeString(),
@@ -107,7 +92,6 @@ class PostController extends Controller
       }
    }
 
-
    public function view($slug){
       $view=Post::where('post_status','1')->where('post_slug',$slug)->first();
 
@@ -122,6 +106,7 @@ class PostController extends Controller
 
 
    public function update(Request $request){
+      // return $request->all();
       $id=$request['id'];
       $slug=$request['slug'];
 
@@ -131,47 +116,47 @@ class PostController extends Controller
 
          Image::make($image)->save('uploads/admin/post/'.$image_1_Name);
 
-         // Post::where('id',$id)->update([
-         //    'post_pic1'=>$imageName,
-         //    'updated_at'=>Carbon::now()->toDateTimeString(),
-         // ]);
+         Post::where('id',$id)->update([
+            'post_pic1'=>$image_1_Name,
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+         ]);
       }
 
-      // if($request->hasFile('post_pic2')){
-      //    $image=$request->file('post_pic2');
-      //    $imageName='post-pic-4-'.time().'-'.'.'.$image->getClientOriginalExtension();
+      if($request->hasFile('post_pic2')){
+         $image=$request->file('post_pic2');
+         $image_2_name='post-pic-2-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
+         Image::make($image)->save('uploads/admin/post/'.$image_2_name);
 
-      //    Post::where('id',$id)->update([
-      //       'post_pic4'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
+         Post::where('id',$id)->update([
+            'post_pic4'=>$image_2_name,
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+         ]);
+      }
 
-      // if($request->hasFile('post_pic3')){
-      //    $image=$request->file('post_pic3');
-      //    $imageName='post-pic-3-'.time().'-'.'.'.$image->getClientOriginalExtension();
+      if($request->hasFile('post_pic3')){
+         $image=$request->file('post_pic3');
+         $image_3_name='post-pic-3-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
+         Image::make($image)->save('uploads/admin/post/'.$image_3_name);
 
-      //    Post::where('id',$id)->update([
-      //       'post_pic3'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
+         Post::where('id',$id)->update([
+            'post_pic3'=>$image_3_name,
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+         ]);
+      }
 
-      // if($request->hasFile('post_pic4')){
-      //    $image=$request->file('post_pic4');
-      //    $imageName='post-pic-4-'.time().'-'.'.'.$image->getClientOriginalExtension();
+      if($request->hasFile('post_pic4')){
+         $image=$request->file('post_pic4');
+         $image_4_name='post-pic-4-'.uniqId().'-'.'.'.$image->getClientOriginalExtension();
 
-      //    Image::make($image)->save('uploads/admin/post/'.$imageName);
+         Image::make($image)->save('uploads/admin/post/'.$image_4_name);
 
-      //    Post::where('id',$id)->update([
-      //       'post_pic4'=>$imageName,
-      //       'updated_at'=>Carbon::now()->toDateTimeString(),
-      //    ]);
-      // }
+         Post::where('id',$id)->update([
+            'post_pic4'=>$image_4_name,
+            'updated_at'=>Carbon::now()->toDateTimeString(),
+         ]);
+      }
 
       $update = Post::where('post_status', '1')->where('id', $id)->first();
 

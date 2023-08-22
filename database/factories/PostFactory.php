@@ -24,7 +24,7 @@ class PostFactory extends Factory
             'post_detail'=>fake()->text($maxNbChars = 200),
             'post_pic1'=>fake()->image('public/uploads/admin/post/',400, 300, null, false),
             'post_creator'=>1,
-            'cat_id'=>rand(4,15),
+            'cat_id'=>rand(4, 15),
             'post_slug'=>'post-'.uniqId(),
             'published_at'=>carbon::now()->toDateTimeString(),
             'created_at'=>carbon::now()->toDateTimeString(),

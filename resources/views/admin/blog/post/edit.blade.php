@@ -36,7 +36,7 @@
                                                 <label for="" class="col-form-label col_form_label">Post Title : <span class="valid_sign">*</span></label>
                                             </div>
                                             <div class="col-md-7">
-                                                <input type="text" id="" class="form-control form_control" name="post_title" value="{{$edit->post_title}}">
+                                                <input type="text" id="" class="form-control form_control" name="post_title" value="">
                                                
                                             </div>
                                         </div>
@@ -56,7 +56,7 @@
                                                 <label for="" class="col-form-label col_form_label">Post Banner image : </label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="file" id="" class="form-control form_control" name="post_pic1" value="{{$edit->post_pic1}}">
+                                                <input type="file" id="" class="form-control form_control" name="post_pic1" value="">
                                                
                                             </div>
                                             <div class="col-md-3">
@@ -73,8 +73,14 @@
                                                 <label for="" class="col-form-label col_form_label">Post Body Image 1 : </label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="file" id="" class="form-control form_control" name="post_pic2" value="">
-                                               
+                                                <input type="file" id="" class="form-control form_control" name="post_pic2" value="{{$edit->post_pic2}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($edit->post_pic2!='')
+                                                    <img src="{{asset('uploads/admin/post/'.$edit->post_pic2)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
+                                                 @else
+                                                    <img src="{{asset('uploads/admin/post')}}/pic2.png" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 
+                                                 @endif  
                                             </div>
                                         </div>
 
@@ -83,8 +89,14 @@
                                                 <label for="" class="col-form-label col_form_label">Post Body Image 2 : </label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="file" id="" class="form-control form_control" name="post_pic3" value="">
-                                               
+                                                <input type="file" id="" class="form-control form_control" name="post_pic3" value="{{$edit->post_pic3}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($edit->post_pic3!='')
+                                                    <img src="{{asset('uploads/admin/post/'.$edit->post_pic3)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
+                                                 @else
+                                                    <img src="{{asset('uploads/admin/post')}}/pic3.png" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 
+                                                 @endif  
                                             </div>
                                         </div>
 
@@ -93,8 +105,14 @@
                                                 <label for="" class="col-form-label col_form_label">Post Body Image 3 : </label>
                                             </div>
                                             <div class="col-md-4">
-                                                <input type="file" id="" class="form-control form_control" name="post_pic4" value="{{old('post_pic4')}}">
-                                               
+                                                <input type="file" id="" class="form-control form_control" name="post_pic4" value="{{$edit->post_pic4}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($edit->post_pic4!='')
+                                                    <img src="{{asset('uploads/admin/post/'.$edit->post_pic4)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
+                                                 @else
+                                                    <img src="{{asset('uploads/admin/post')}}/pic4.png" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 
+                                                 @endif  
                                             </div>
                                         </div>
 

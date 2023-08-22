@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('style')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
 @section('content')
 </div>
             <h4 class="page-title">Dashboard</h4>
@@ -45,7 +48,7 @@
                                                 <label for="" class="col-form-label col_form_label">Post Details : </label>
                                             </div>
                                             <div class="col-md-7 mb-2">
-                                               <textarea type="description" rows="4" id="" class="form-control form_control" name="post_detail" value="{{old('post_detail')}}"></textarea>
+                                               <textarea type="description"  rows="15" id="description" class="form-control form_control" name="post_detail" value="{{old('post_detail')}}"></textarea>
                                                
                                             </div>
                                         </div>
@@ -139,4 +142,17 @@
         </div> <!-- end row -->
     </div> <!-- end col -->
 </div>
+@endsection
+
+@section('script')
+<!-- <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script>
+    // tinymce.init({
+    //         selector: '#description',
+    //     });
+    $(document).ready(function() {
+            $('#description').summernote();
+        });
+</script>
 @endsection

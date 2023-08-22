@@ -15,6 +15,7 @@
         <link  rel="stylesheet" href="{{asset('contents/admin')}}/assets/css/all.min.css"/>
         <link  rel="stylesheet" href="{{asset('contents/admin')}}/assets/css/icons.min.css"/>
         <link  rel="stylesheet" href="{{asset('contents/admin')}}/assets/css/app.min.css"/>
+        @yield('style')
         <link  rel="stylesheet" href="{{asset('contents/admin')}}/assets/css/style.css">
 
         <script src="{{asset('contents/admin')}}/assets/js/jquery-3.6.4.min.js"></script>
@@ -571,10 +572,12 @@
 
         <script src="{{asset('contents/admin')}}/assets/js/vendor.min.js"></script>
         <script src="{{asset('contents/admin')}}/assets/js/app.min.js"></script>
+        @yield('script')
         <script src="{{asset('contents/admin')}}/assets/js/vendor/apexcharts.min.js"></script>
         <script src="{{asset('contents/admin')}}/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
         <script src="{{asset('contents/admin')}}/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
         <script src="{{asset('contents/admin')}}/assets/js/pages/demo.dashboard.js"></script>
+        <script src="{{asset('contents/admin')}}/assets/js/custom.js"></script>
         <!-- end demo js-->
     </body>
 

@@ -53,7 +53,7 @@
                                         @foreach($post as $data)
                                         <tr>
                                         <td>{{$data->post_title}}</td>
-                                        <td>{{Str::words($data->post_detail,4)}}</td>
+                                        <td>{!!Str::words($data->post_detail,4)!!}</td>
                                         <td>
                                             @if($data->post_pic1!='')
                                                  <img src="{{asset('uploads/admin/post/'.$data->post_pic1)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
@@ -65,7 +65,7 @@
                                            
                                             <td>
                                               @foreach($data->tags as $tag)
-                                                <button type="button" class="btn btn-secondary">{{$tag->tag_title}}</button>
+                                                <button type="button" class="btn btn-secondary mt-1">{{$tag->tag_title}}</button>
                                                 @endforeach
                                             </td>
                                             
@@ -118,6 +118,9 @@
                                         @endforeach
                                     </tbody>
                                     </table>
+                                    <div class="paginate">
+                                        <!-- {{$post->links()}} -->
+                                    </div>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>

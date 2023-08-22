@@ -37,7 +37,7 @@
                                             <tr>
                                                 <td> Post Detail</td>
                                                 <td>:</td>
-                                                <td>{{$view->post_detail}}</td>
+                                                <td>{!! $view->post_detail !!}</td>
                                             </tr>
                                             <tr>
                                                 <td> Post banner</td>
@@ -56,7 +56,7 @@
                                                 <td>:</td>
                                                 
                                                 <td>
-                                                @if($view->post_pic1!='')
+                                                @if($view->post_pic2!='')
                                                     <img src="{{asset('uploads/admin/post/'.$view->post_pic2)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
                                                  @else
                                                  <img src="{{asset('uploads/admin/post')}}/pic2.png" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 
@@ -68,7 +68,7 @@
                                                 <td>:</td>
                                                 
                                                 <td>
-                                                @if($view->post_pic1!='')
+                                                @if($view->post_pic3!='')
                                                     <img src="{{asset('uploads/admin/post/'.$view->post_pic3)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
                                                  @else
                                                  <img src="{{asset('uploads/admin/post')}}/pic3.jpg" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 
@@ -80,7 +80,7 @@
                                                 <td>:</td>
                                                 
                                                 <td>
-                                                @if($view->post_pic1!='')
+                                                @if($view->post_pic4!='')
                                                     <img src="{{asset('uploads/admin/post/'.$view->post_pic4)}}" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;">
                                                  @else
                                                  <img src="{{asset('uploads/admin/post')}}/pic4.jpg" class="img-fluid" height="200px" width="200px" style="oobject-fit:cover;"> 

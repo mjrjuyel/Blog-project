@@ -10,5 +10,10 @@ class WebsiteController extends Controller
 
     public function index(){
         return view('website.post.index');
-    } 
+    }
+
+    public function category(){
+        return view('website.category.category');
+    }
+
 }
