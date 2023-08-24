@@ -119,7 +119,7 @@
                                     </tbody>
                                     </table>
                                     <div class="paginate">
-                                        <!-- {{$post->links()}} -->
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-1"></div>

@@ -152,7 +152,7 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="{{url('/')}}" class="side-nav-link">
+                            <a href="{{url('/')}}" class="side-nav-link" target="_blank">
                                 <i class="uil-meeting-board"></i>
                                 <span> Live Site </span>
                             </a>

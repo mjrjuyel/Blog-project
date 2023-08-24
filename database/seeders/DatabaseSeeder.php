@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\Category::factory(10)->create();
         \App\Models\Tag::factory(15)->create();
-        \App\Models\Post::factory(2)->create();
+        \App\Models\Post::factory(40)->create();
 
         // \App\Models\Post::factory()
         // ->hasAttached(\App\Models\Tag::factory(),15)

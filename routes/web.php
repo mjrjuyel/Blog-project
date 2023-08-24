@@ -29,8 +29,8 @@ use App\Http\Controllers\Website\WebsiteController;
 // });
 
 // blog pages
-Route::get('/',[WebsiteController::class,'index']);
-Route::get('/post/view',[WebsiteController::class,'view']);
+Route::get('/',[WebsiteController::class,'index'])->name('/');
+Route::get('/post/view/{slug}',[WebsiteController::class,'view']);
 Route::get('/post/category',[WebsiteController::class,'category']);
 
 // LOGout 

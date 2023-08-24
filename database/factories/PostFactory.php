@@ -21,7 +21,7 @@ class PostFactory extends Factory
     {
         return [
             'post_title'=>fake()->sentence($nbWords = 2, $variableNbWords = true),
-            'post_detail'=>fake()->text($maxNbChars = 200),
+            'post_detail'=>fake()->paragraph($nbSentences = 3, $variableNbSentences = true),
             'post_pic1'=>fake()->image('public/uploads/admin/post/',400, 300, null, false),
             'post_creator'=>1,
             'cat_id'=>rand(4, 15),
