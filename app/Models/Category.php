@@ -14,4 +14,7 @@ class Category extends Model
     public function creatorinfo(){
         return $this->belongsTo(User::class,'cat_creator','id');
     }
+    public function posts(){
+        return $this->hasMany(Post::class,'cat_id','cat_id');
+    }
 }

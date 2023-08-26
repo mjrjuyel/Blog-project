@@ -30,8 +30,10 @@ class WebsiteController extends Controller
     }
     public function view($slug){
         $view=Post::with('postcreat','PostCat')->where('post_status','1')->where('post_slug',$slug)->first();
-        
-        return view('website.post.view',compact('view'));
+        $popupost= Post::where('post_status','1')->inRandomOrder()->limit(3)->get();
+        $category= Category::with('posts')->where('cat_status','1')->orderBy('cat_id','DESC')->get();
+        // return $category;
+        return view('website.post.view',compact('view','popupost','category'));
     }
     public function category(){
         return view('website.category.category');
