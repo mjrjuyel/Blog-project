@@ -48,11 +48,9 @@
             <nav class="site-navigation" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                 <li><a href="{{ route('/')}}">Home</a></li>
-                <li><a href="category.html">Politics</a></li>
-                <li><a href="category.html">Tech</a></li>
-                <li><a href="category.html">Entertainment</a></li>
-                <li><a href="category.html">Travel</a></li>
-                <li><a href="category.html">Sports</a></li>
+                @foreach($categories as $cat)
+                <li><a href="{{url('/post/category/'.$cat->cat_slug)}}">{{$cat->cat_title}}</a></li>
+                @endforeach
                 <li class="d-none d-lg-inline-block"><a href="#" class="js-search-toggle"><span
                       class="icon-search"></span></a></li>
               </ul>
@@ -79,24 +77,22 @@
               <li><a href="#">About Us</a></li>
               <li><a href="#">Advertise</a></li>
               <li><a href="#">Careers</a></li>
-              <li><a href="#">Subscribes</a></li>
+              <li><a href="#Subscribe">Subscribes</a></li>
             </ul>
             <ul class="list-unstyled float-left">
-              <li><a href="#">Travel</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Sports</a></li>
-              <li><a href="#">Nature</a></li>
+            @foreach($categories as $cat)
+              <li><a href="{{url('/post/category/'.$cat->cat_slug)}}">{{$cat->cat_title}}</a></li>
+              @endforeach
             </ul>
           </div>
           <div class="col-md-4">
             <div>
               <h3 class="footer-heading mb-4">Connect With Us</h3>
               <p>
-                <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
-                <a href="#"><span class="icon-twitter p-2"></span></a>
-                <a href="#"><span class="icon-instagram p-2"></span></a>
-                <a href="#"><span class="icon-rss p-2"></span></a>
-                <a href="#"><span class="icon-envelope p-2"></span></a>
+                  <a href="#" class="p-2"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" class="p-2"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="#" class="p-2"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" class="p-2"><i class="fa-brands fa-youtube"></i></a>
               </p>
             </div>
           </div>
@@ -107,8 +103,7 @@
 
               Copyright &copy;
               <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-              with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com/"
-                target="_blank">Colorlib</a>
+              with <i class="icon-heart text-danger" aria-hidden="true"></i> by <h3>Juyel</h3>
 
             </p>
           </div>

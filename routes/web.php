@@ -31,7 +31,7 @@ use App\Http\Controllers\Website\WebsiteController;
 // blog pages
 Route::get('/',[WebsiteController::class,'index'])->name('/');
 Route::get('/post/view/{slug}',[WebsiteController::class,'view']);
-Route::get('/post/category',[WebsiteController::class,'category']);
+Route::get('/post/category/{slug}',[WebsiteController::class,'category']);
 
 // LOGout 
 // Route::post('logout', 'Auth\LoginController@logout')->name('logout');

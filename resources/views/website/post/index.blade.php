@@ -72,7 +72,7 @@
                                     {{ $data->created_at->format('d-M-y') }}</span>
                             </div>
                             <p>{!!Str::words($data->post_detail,25)!!}</p>
-                            <p><a href="#">Read More</a></p>
+                            <p><a href="{{url('post/view/'.$data->post_slug)}}">Read More</a></p>
                         </div>
                     </div>
                 </div>

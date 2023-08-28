@@ -24,7 +24,7 @@
         <div class="row blog-entries element-animate">
             <div class="col-md-12 col-lg-8 main-content">
                 <div class="post-content-body">
-                    <p>{{$view->post_detail}}</p>
+                    <p>{{$view->post_detail}}
                     <div class="row mb-5 mt-5">
                         <div class="col-md-12 mb-4">
                             <img src="{{asset('contents/website')}}/assets/images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
@@ -36,15 +36,17 @@
                             <img src="{{ asset('contents/website') }}/assets/images/img_3.jpg" alt="Image placeholder" class="img-fluid rounded">
                         </div>
                     </div>
-                    <p>Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur
+                    Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur
                         veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo
                         voluptate
                         quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus
                         cum.</p>
                 </div>
                 <div class="pt-5">
-                    <p>Categories: <a href="#">{{$view->Postcat->cat_title}}  </a> Tags: <a href="#">#manila</a>, <a
-                            href="#">#asia</a></p>
+                    <p>Categories: <a href="#">{{optional($view->Postcat)->cat_title}}  </a> Tags:
+                    @foreach($view->tags as $tag) 
+                    <a href="#">#{{$tag->tag_title}}</a>,
+                    @endforeach</p>
                 </div>
                 <div class="pt-5">
                     <h3 class="mb-5">6 Comments</h3>
@@ -187,7 +189,7 @@
 
                 <div class="sidebar-box">
                     <div class="bio text-center">
-                        <img src="{{asset('contents/website')}}/assets/images/person_2.jpg" alt="Image Placeholder" class="img-fluid mb-5">
+                        <img src="{{ asset('uploads/admin') }}/user/User-1-1690211373.jpg" alt="Image Placeholder" class="img-fluid mb-5">
                         <div class="bio-body">
                             <h2>{{$view->postcreat->name}}</h2>
                             <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem
@@ -211,7 +213,7 @@
                         <ul>
                             @foreach($popupost as $post)
                             <li>
-                                <a href="#">
+                                <a href="{{url('post/view/'.$post->post_slug)}}">
                                     <img src="{{asset('uploads/admin/post/'.$post->post_pic1)}}" alt="Image placeholder" class="mr-4">
                                     <div class="text">
                                         <h4>{{$post->post_title}}</h4>
@@ -230,7 +232,7 @@
                     <h3 class="heading">Categories</h3>
                     <ul class="categories">
                         @foreach($category as $cat)
-                        <li><a href="#">{{$cat->cat_title}} <span> ({{optional($cat->posts)->count()}})</span></a></li>
+                        <li><a href="{{url('post/category/'.$cat->cat_slug)}}">{{$cat->cat_title}} <span> ({{optional($cat->posts)->count()}})</span></a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -238,18 +240,9 @@
                 <div class="sidebar-box">
                     <h3 class="heading">Tags</h3>
                     <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Freelancing</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Freelancing</a></li>
+                       @foreach($tags as $t)
+                        <li><a href="#">{{$t->tag_title}}</a></li>
+                       @endforeach
                     </ul>
                 </div>
             </div>
@@ -306,7 +299,7 @@
         </div>
     </div>
 </div>
-<div class="site-section bg-lightx">
+<div id="subscribe" class="site-section bg-lightx">
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-md-5">

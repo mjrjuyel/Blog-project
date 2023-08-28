@@ -20,8 +20,14 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\Category::factory(10)->create();
         \App\Models\Tag::factory(15)->create();
-        \App\Models\Post::factory(40)->create();
+        \App\Models\Post::factory(10)->create();
 
+
+        $post=Post::all();
+        foreach($post as $post){
+            $tag =Tag::inRandomOrder()->limit(rand(1,3))->pluck('id');
+            $post->tags()->attach($tag);
+        }
         // \App\Models\Post::factory()
         // ->hasAttached(\App\Models\Tag::factory(),15)
         // ->create(10);
