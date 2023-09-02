@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\RoleUserController;
 use App\Http\Controllers\Admin\CategoryPostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\BasicController;
 
 
 use App\Http\Controllers\Website\WebsiteController;
@@ -94,5 +95,13 @@ Route::post('/dashboard/blog/post/update',[PostController::class,'update']);
 Route::post('/dashboard/blog/post/softdel',[PostController::class,'softdelete']);
 Route::get('/dashboard/blog/post/restore',[PostController::class,'restore']);
 Route::post('/dashboard/blog/post/delete/{slug}',[PostController::class,'delete']);
+
+// basic part start
+
+Route::get('/dashboard/basic',[BasicController::class,'basic']);
+Route::Post('/dashboard/basic/update',[BasicController::class,'basic_update']);
+
+Route::get('/dashboard/social',[BasicController::class,'social']);
+Route::Post('/dashboard/social/update',[BasicController::class,'social_update']);
 
 require __DIR__.'/auth.php';

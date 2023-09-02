@@ -36,17 +36,24 @@ class WebsiteController extends Controller
         $category= Category::with('posts')->where('cat_status','1')->orderBy('cat_id','DESC')->get();
         $tags= Tag::where('tag_status','1')->orderBy('id','DESC')->get();
         // return $tag;
-        return view('website.post.view',compact('view','popupost','category','tags'));
+        $relatePost= Post::with('Postcat')->where('post_status','1')->orderBy('cat_id','DESC')->inRandomOrder()->take(4)->get();
+
+        $toprelpost = $relatePost->splice(0,1);
+        $middlerelpost = $relatePost->splice(0,2);
+        $lastrelpost = $relatePost->splice(0);
+        // return $middlerelpost;
+        return view('website.post.view',compact('view','popupost','category','tags','toprelpost','middlerelpost','lastrelpost'));
     }
     public function category($slug){
         $category=Category::with('posts')->where('cat_status','1')->where('cat_slug',$slug)->first();
-
+        // return $category->posts;
         if($category){
             $post=Post::where('post_status','1')->where('cat_id',$category->id)->simplePaginate(5);
             return view('website.category.category',compact(['category','post']));
         }
-        return redirect()->with();
-        
+        else{
+        return redirect('/');
+        }
     }
 
 }
