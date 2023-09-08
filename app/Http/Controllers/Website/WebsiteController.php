@@ -9,7 +9,11 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Tag;
-
+use App\Models\Basic;
+use App\Models\SocialMedia;
+use App\Models\Subscribe;
+use carbon\carbon;
+use Session;
 class WebsiteController extends Controller
 {
 
@@ -53,6 +57,25 @@ class WebsiteController extends Controller
         }
         else{
         return redirect('/');
+        }
+    }
+
+    public function insert(Request $request){
+        // return $request->all();
+        // $this->validate($request,[
+        //     'sub_email'=>'required|unique:subcribes',
+        // ]);
+
+        $insert=Subscribe::insertGetId([
+            'sub_email'=>$request['subscribe'],
+            'sub_slug'=>'sub-'.uniqId(),
+            'created_at'=>carbon::now()->toDateTimeString(),
+        ]);
+        if($insert){
+            return redirect('/');
+        }
+        else{
+            return "failed";
         }
     }
 

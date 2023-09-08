@@ -10,8 +10,8 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\BasicController;
 
-
 use App\Http\Controllers\Website\WebsiteController;
+use App\Http\Controllers\Website\SubscribeController;
 
 
 /*
@@ -34,6 +34,7 @@ Route::get('/',[WebsiteController::class,'index'])->name('/');
 Route::get('/post/view/{slug}',[WebsiteController::class,'view']);
 Route::get('/post/category/{slug}',[WebsiteController::class,'category']);
 
+Route::post('/subscribe/insert',[WebsiteController::class,'insert']);
 // LOGout 
 // Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -100,8 +101,18 @@ Route::post('/dashboard/blog/post/delete/{slug}',[PostController::class,'delete'
 
 Route::get('/dashboard/basic',[BasicController::class,'basic']);
 Route::Post('/dashboard/basic/update',[BasicController::class,'basic_update']);
-
+// social nedia
 Route::get('/dashboard/social',[BasicController::class,'social']);
 Route::Post('/dashboard/social/update',[BasicController::class,'social_update']);
 
+// Subscribe part 
+Route::get('/dashboard/subscribe',[SubscribeController::class,'index']);
+Route::get('/dashboard/blog/post/add',[SubscribeController::class,'add']);
+Route::get('/dashboard/blog/post/view/{slug}',[SubscribeController::class,'view']);
+Route::get('/dashboard/blog/post/edit/{slug}',[SubscribeController::class,'edit']);
+Route::post('/dashboard/blog/post/insert',[SubscribeController::class,'insert']);
+Route::post('/dashboard/blog/post/update',[SubscribeController::class,'update']);
+Route::post('/dashboard/blog/post/softdel',[SubscribeController::class,'softdelete']);
+Route::get('/dashboard/blog/post/restore',[SubscribeController::class,'restore']);
+Route::post('/dashboard/blog/post/delete/{slug}',[SubscribeController::class,'delete']);
 require __DIR__.'/auth.php';

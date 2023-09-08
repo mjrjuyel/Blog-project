@@ -260,6 +260,14 @@
                         </div>
                     </li>
                     <li class="side-nav-item">
+                        <a href="{{ url('dashboard/subscribe') }}" class="side-nav-link">
+                            <i class="uil-home-alt"></i>
+                            <span class="badge bg-success float-end">4</span>
+                            <span> Subscriber </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
                         <a href="apps-calendar.html" class="side-nav-link"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             <i class="uil-exit"></i>

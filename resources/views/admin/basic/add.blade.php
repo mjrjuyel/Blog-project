@@ -76,7 +76,7 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <textarea type="text" style="resize:none;" rows="5"
-                                                    class="form-control form_control" name="about" value="{{$basic->basic_about}}"></textarea>
+                                                    class="form-control form_control" name="about" value="">{{$basic->basic_about}}</textarea>
 
                                             </div>
                                         </div>

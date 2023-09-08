@@ -42,7 +42,7 @@
             </form>
           </div>
           <div class="col-4 site-logo">
-            <a href="{{ route('/')}}" class="text-black h2 mb-0">Blog</a>
+            <a href="{{ route('/')}}" class="text-black h2 mb-0">{{$basics->basic_logo_title}}</a>
           </div>
           <div class="col-8 text-right">
             <nav class="site-navigation" role="navigation">
@@ -67,9 +67,7 @@
         <div class="row mb-5">
           <div class="col-md-4">
             <h3 class="footer-heading mb-4">About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam deleniti quasi
-              saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae, repellat eveniet omnis,
-              voluptatem in. Soluta, eligendi, architecto.</p>
+            <p>{{$basics->basic_about}}</p>
           </div>
           <div class="col-md-3 ml-auto">
 
@@ -80,7 +78,7 @@
               <li><a href="#Subscribe">Subscribes</a></li>
             </ul>
             <ul class="list-unstyled float-left">
-            @foreach($categories as $cat)
+             @foreach($categories as $cat)
               <li><a href="{{url('/post/category/'.$cat->cat_slug)}}">{{$cat->cat_title}}</a></li>
               @endforeach
             </ul>
@@ -89,10 +87,14 @@
             <div>
               <h3 class="footer-heading mb-4">Connect With Us</h3>
               <p>
-                  <a href="#" class="p-2"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#" class="p-2"><i class="fa-brands fa-linkedin"></i></a>
-                  <a href="#" class="p-2"><i class="fa-brands fa-instagram"></i></a>
+                  @if($socials->sm_facebok != null)
+                  <a href="{{$socials->sm_facebok}}" class="p-2"><i class="fa-brands fa-facebook-f"></i></a>
+                  @endif
+                  @if($socials->sm_insta != null)
+                  <a href="{{$socials->sm_insta}}" class="p-2"><i class="fa-brands fa-instagram"></i></a>
+                  @endif
                   <a href="#" class="p-2"><i class="fa-brands fa-youtube"></i></a>
+                  
               </p>
             </div>
           </div>
